@@ -3,8 +3,8 @@ const HomeLayout=({
     children
 })=>{
     return (
-      <section>
-        <TopNavbar />
+      <section className="w-screen h-screen">
+        <TopNavbar pageTitle="Home" />
         {children}
       </section>
     );

@@ -1,7 +1,7 @@
 const Home=()=>{
     return(
-        <div className="text-center">
-            Home
+        <div className="pt-72 text-center text-black">
+            Comming Soon
         </div>
     )
 };
