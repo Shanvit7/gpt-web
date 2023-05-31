@@ -3,7 +3,7 @@ import OCR from "../components/Icons/OCR";
 /********* HELPERS **********/
 import Link from "next/link";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div className="container mx-auto p-4  mt-4 lg:mt-32">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -29,4 +29,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
