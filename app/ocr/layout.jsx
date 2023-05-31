@@ -11,7 +11,7 @@ const OCRLayout=({
         <TopNavbar pageTitle={pageTitle} />
         <div className="flex items-center text-black">
           <BackButton />
-          <h1 className="hidden lg:block mt-2">{pageTitle}</h1>
+          <h1 className="hidden font-bold lg:block mt-2">{pageTitle}</h1>
         </div>
         {children}
       </section>

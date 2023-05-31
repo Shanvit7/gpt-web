@@ -13,7 +13,7 @@ const Sidebar = ({ isSidebarOpen = false, pageTitle }) => {
               ? option.subOptions.map(
                   (option, index) =>
                     option.label !== pageTitle && (
-                      <li key={index}>
+                      <li className="font-bold" key={index}>
                         <Link
                           href={option.url}
                         >
@@ -23,7 +23,7 @@ const Sidebar = ({ isSidebarOpen = false, pageTitle }) => {
                     )
                 )
               : option.label !== pageTitle && (
-                  <li key={index}>
+                  <li className="font-bold" key={index}>
                     <Link href={option.url}>
                       {option.label}
                     </Link>
