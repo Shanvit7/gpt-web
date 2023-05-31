@@ -1,15 +1,13 @@
-/********* COMPONENTS **********/
 import TopNavbar from "../components/Navigation/TopNavbar";
-
-const HomeLayout=({
+const OCRLayout=({
     children
 })=>{
     return (
       <section className="w-screen h-screen">
-        <TopNavbar pageTitle="Home" />
+        <TopNavbar pageTitle="Optical Character Recognition" />
         {children}
       </section>
     );
   }
 
-export default HomeLayout;
+export default OCRLayout;
