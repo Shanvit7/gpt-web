@@ -24,7 +24,7 @@ const TopNavbar = ({ pageTitle = "College GPT" }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <p className="hidden lg:block text-black font-bold text-lg">
-              College GPT
+             SynthiAIze
             </p>
             <p className="lg:hidden text-black font-bold text-lg">
               {pageTitle}

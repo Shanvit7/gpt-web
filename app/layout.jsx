@@ -4,7 +4,7 @@ import { Darker_Grotesque } from 'next/font/google'
 const darker_groteque = Darker_Grotesque({ subsets: ['latin'],weight: '600' })
 
 export const metadata = {
-  title: 'College GPT',
+  title: 'SynthiAIze',
   description: 'Work in Progress',
 }
 
