@@ -7,7 +7,7 @@ const OCRLayout=({
 })=>{
   const pageTitle = "Image to Text"
     return (
-      <section className="w-screen h-screen">
+      <section className="w-screen h-screen overflow-x-hidden">
         <TopNavbar pageTitle={pageTitle} />
         <div className="flex items-center text-black">
           <BackButton />

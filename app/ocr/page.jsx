@@ -81,8 +81,8 @@ const OCRPage = () => {
           {text && (
             <div className="mt-8">
               <hr className="bg-black border p-1" />
-              <h2 className="p-4">Text : </h2>
-              <p className="p-4">{text}</p>
+              <h2 className="p-4 lg:p-8">Text : </h2>
+              <p className="p-4 lg:p-8">{text}</p>
             </div>
           )}
         </>
