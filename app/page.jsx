@@ -6,7 +6,7 @@ import {useRef,useEffect} from "react";
 import Link from "next/link";
 import { APP_NAME } from "./utils";
 import lottie from "lottie-web";
-import animationData from "../public/astronot.json";
+import animationData from "../public/file-searching.json";
 
 const LandingPage = () => {
   const animationContainerRef = useRef(null);

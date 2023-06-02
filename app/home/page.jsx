@@ -26,7 +26,7 @@ const HomePage = () => {
           <p className="font-medium">&#40;Condense Text to Key Points&#41;</p>
         </div>
         <div className="box bg-white border border-black rounded-lg p-4 flex flex-col justify-center items-center">
-          <h2 className="text-lg font-bold">Coming Soon</h2>
+          <h2 className="text-lg font-bold">Coming Soon ...</h2>
         </div>
       </div>
     </div>
