@@ -64,13 +64,23 @@ const OCRPage = () => {
           )}
         </div>
       </div>
-      {!image &&
-          <div className="p-8 text-center">
-            <h1 className="pb-4">How does it work ?</h1>
-            <h4>
-            OCR &#40;Optical Character Recognition&#41; is a technology that allows computers to recognize and extract text from images or scanned documents. It works by analyzing the patterns and shapes of characters in the image and converting them into editable and searchable text. OCR is useful for tasks like digitizing printed documents, extracting data from forms, and enabling text recognition in applications such as image-to-text conversion or automated document processing. It simplifies the process of converting physical documents into digital formats, making it easier to work with and manipulate text-based content.
-            </h4>
-          </div>}
+      {!image && (
+        <div className="p-8 text-center">
+          <h1 className="pb-4">How does it work ?</h1>
+          <h4>
+            OCR &#40;Optical Character Recognition&#41; is a technology that
+            allows computers to recognize and extract text from images or
+            scanned documents. It works by analyzing the patterns and shapes of
+            characters in the image and converting them into editable and
+            searchable text. OCR is useful for tasks like digitizing printed
+            documents, extracting data from forms, and enabling text recognition
+            in applications such as image-to-text conversion or automated
+            document processing. It simplifies the process of converting
+            physical documents into digital formats, making it easier to work
+            with and manipulate text-based content.
+          </h4>
+        </div>
+      )}
       {image && (
         <>
           <div className="flex justify-center">

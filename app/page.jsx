@@ -1,39 +1,40 @@
 "use client"
 /********* COMPONENTS **********/
-import BasicButton from "./components/Button/BasicButton";
-/********* HELPERS **********/
-import {useRef,useEffect} from "react";
-import Link from "next/link";
-import { APP_NAME } from "./utils";
-import lottie from "lottie-web";
-import animationData from "../public/file-searching.json";
+import BasicButton from './components/Button/BasicButton';
+/********* HELPERS & UTILS  **********/
+import { useRef, useEffect } from 'react';
+import Lottie from 'lottie-react';
+import Link from 'next/link';
+import { APP_NAME } from './utils';
+import animationData from '../public/file-searching.json';
 
 const LandingPage = () => {
-  const animationContainerRef = useRef(null);
-  useEffect(() => {
-    const anim = lottie.loadAnimation({
-      container: animationContainerRef.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: animationData,
-    });
+  const animationRef = useRef(null);
 
+  useEffect(() => {
+    const animation = animationRef.current;
+    animation.play();
     return () => {
-      anim.destroy();
+      animation.destroy();
     };
   }, []);
+
   return (
     <div>
       <div className="min-h-screen flex flex-col justify-center items-center">
-       <div className="w-64 h-64" ref={animationContainerRef} />
+        <div className="w-64 h-64">
+          <Lottie
+            animationData={animationData}
+            loop={true}
+            autoplay={true}
+            lottieRef={animationRef}
+          />
+        </div>
         <div className="container pt-8 mx-auto text-center">
           <h1 className="text-5xl font-bold text-black mb-8">{APP_NAME}</h1>
           <p className="text-black text-lg mb-8">Empowering Text Understanding with AI</p>
           <BasicButton>
-            <Link href="/home">
-              Get started
-            </Link>
+            <Link href="/home">Get started</Link>
           </BasicButton>
         </div>
       </div>
