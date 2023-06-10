@@ -9,19 +9,19 @@ const TextSummarizationPage = () => {
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
-  const handleSummarize = () => {
-    setSummary("This is a summary of the input text.");
-  };
-  const getData = async () => {
-    const data = await fetch("http://localhost:3000/api/text", {
-      method: "GET",
+
+  const processTextSummarization = async ()=>{
+    const data = await fetch("http://localhost:3000/api/text-summarize", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({ text, sentences: 3 }),
     });
     const response = await data.json();
-    return response.data;
-  };
+    setSummary(response?.summary);
+  }
+
   return (
     <div className="flex flex-col items-center mt-8 text-black">
       <div className="w-full">
@@ -32,7 +32,7 @@ const TextSummarizationPage = () => {
           onChange={handleTextChange}
         />
         <div className="flex justify-center w-full p-8">
-          <BasicButton onClick={handleSummarize}>Summarize</BasicButton>
+          <BasicButton onClick={processTextSummarization}>Summarize</BasicButton>
         </div>
         {!summary && (
           <div className="p-4 text-center">
