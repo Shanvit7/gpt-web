@@ -1,9 +1,9 @@
 export async function POST(request) {
-    const { text } = await request.json();
-    const dataObj={
+    const { text,minLength,maxLength } = await request.json();
+    const dataObj= {
         text: text,
-        min_length: 10,
-        max_length: 10,
+        min_length: minLength || 10,
+        max_length: maxLength || 10,
     }
   const options = {
     method: "POST",
@@ -24,7 +24,6 @@ export async function POST(request) {
       options
     );
     const json = await response.json();
-    console.log('Res',json);
     return new Response(JSON.stringify({ summary: json.summary }));
   } catch (error) {
     return new Response(

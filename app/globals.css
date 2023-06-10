@@ -18,8 +18,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  background: whitesmoke;
-  width: 0.2rem;
+  background: white;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -27,5 +27,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: ghostwhite;
+  background: black;
 }

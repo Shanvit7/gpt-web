@@ -1,6 +1,7 @@
 /********* COMPONENTS **********/
 import OCR from "../components/Icons/OCR";
 import TextSummary from "../components/Icons/TextSummary";
+import SentimentAnalysis from "../components/Icons/SentimentAnalysis";
 /********* HELPERS **********/
 import Link from "next/link";
 
@@ -28,7 +29,11 @@ const HomePage = async () => {
         </div>
         </Link>
         <div className="box bg-white border border-black rounded-lg p-4 flex flex-col justify-center items-center">
-          <h2 className="text-lg font-bold">Coming Soon ...</h2>
+        <figure className="min-w-min w-24 h-24 mt-2">
+            <SentimentAnalysis/> 
+          </figure>
+          <h2 className="text-lg font-bold mt-8">Sentiment Analysis</h2>
+          <p className="font-medium">&#40;Comming Soon&#41;</p>
         </div>
       </div>
     </div>
