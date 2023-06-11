@@ -3,12 +3,14 @@ import OCR from "../components/Icons/OCR";
 import TextSummary from "../components/Icons/TextSummary";
 import SentimentAnalysis from "../components/Icons/SentimentAnalysis";
 import TextMining from "../components/Icons/TextMining";
+import LanguageDetection from "../components/Icons/LanguageDetection";
+import NamedEntityRecognition from "../components/Icons/NamedEntityRecognition";
 /********* HELPERS **********/
 import Link from "next/link";
 
 const HomePage = async () => {
   return (
-    <div className="container mx-auto p-4  mt-4 lg:mt-32">
+    <div className="container mx-auto p-4  mt-4 lg:mt-16">
       <div className="grid grid-cols-1 md:grid-cols-3 text-black gap-4">
         <Link href={"/ocr"}>
           <div className="box bg-white border border-black rounded-lg p-4 flex flex-col justify-center items-center">
@@ -51,6 +53,25 @@ const HomePage = async () => {
             </figure>
             <h2 className="text-lg font-bold mt-2">Sentiment Analysis</h2>
             <p className="font-medium">&#40;Find emotion expressed in a piece of text&#41;</p>
+          </div>
+        </Link>
+
+        <Link href={"/comming-soon"}>
+          <div className="box bg-white border border-black rounded-lg p-4 flex flex-col justify-center items-center">
+            <figure className="min-w-min w-24 h-24 mt-6">
+              <LanguageDetection />
+            </figure>
+            <h2 className="text-lg font-bold mt-2">Language Detection</h2>
+            <p className="font-medium">&#40;Comming Soon&#41;</p>
+          </div>
+        </Link>
+        <Link href={"/comming-soon"}>
+          <div className="box bg-white border border-black rounded-lg p-4 flex flex-col justify-center items-center">
+            <figure className="min-w-min w-24 h-24 mt-6">
+              <NamedEntityRecognition />
+            </figure>
+            <h2 className="text-lg font-bold mt-2">Named Entity Recognition</h2>
+            <p className="font-medium">&#40;Comming Soon&#41;</p>
           </div>
         </Link>
       </div>
