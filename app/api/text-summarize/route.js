@@ -1,9 +1,9 @@
 export async function POST(request) {
-    const { text,minLength,maxLength } = await request.json();
+    const { text,summaryPercent } = await request.json();
     const dataObj= {
+        language: 'english',
         text: text,
-        min_length: minLength || 10,
-        max_length: maxLength || 10,
+        summary_percent: summaryPercent || 5
     }
   const options = {
     method: "POST",
@@ -20,11 +20,11 @@ export async function POST(request) {
   };
   try {
     const response = await fetch(
-      "https://tldrthis.p.rapidapi.com/v1/model/abstractive/summarize-text/",
+      'https://text-analysis12.p.rapidapi.com/summarize-text/api/v1.1',
       options
     );
-    const json = await response.json();
-    return new Response(JSON.stringify({ summary: json.summary }));
+    const responseJson = await response.json();
+    return new Response(JSON.stringify({ summary: responseJson.summary }));
   } catch (error) {
     return new Response(
       JSON.stringify({ error: "An error occurred during summarization" })

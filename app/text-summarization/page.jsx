@@ -6,24 +6,21 @@ const TextSummarizationPage = () => {
   const [text, setText] = useState("");
   const [summary, setSummary] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [minLength, setMinLength] = useState(10);
-  const [maxLength, setMaxLength] = useState(10);
+  const [summaryPercent,setSummaryPercent] = useState(10);
 
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
 
-  const handleMinLengthChange = (e) => {
-    setMinLength(parseInt(e.target.value));
-  };
 
-  const handleMaxLengthChange = (e) => {
-    setMaxLength(parseInt(e.target.value));
+  const handleSummaryPercentChange = (e) => {
+    setSummaryPercent(parseInt(e.target.value));
   };
 
   const processTextSummarization = async () => {
-    if (minLength < 10 || maxLength < 10) {
-      alert("Minimum and maximum lengths should be at least 10.");
+    if(summaryPercent < 5){
+      alert("Summary percent can't be less than 5%");
+      setSummaryPercent(5);
       return;
     }
     setIsLoading(true);
@@ -32,7 +29,7 @@ const TextSummarizationPage = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text, minLength, maxLength }),
+      body: JSON.stringify({ text, summaryPercent }),
     });
     const response = await data.json();
     if (response?.summary) {
@@ -55,25 +52,14 @@ const TextSummarizationPage = () => {
         />
         <div className="flex lg:flex-row flex-col gap-4 justify-center w-full p-8">
           <div className="flex flex-col">
-            <label htmlFor="minLength">Minimum Length:</label>
+            <label htmlFor="summaryPercent">Summary Percent:</label>
             <input
-              id="minLength"
-              type="number"
-              className="mr-2 p-2 bg-black text-white border border-white"
-              placeholder="Min Length"
-              value={minLength}
-              onChange={handleMinLengthChange}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="maxLength">Maximum Length:</label>
-            <input
-              id="maxLength"
+              id="summaryPercent"
               type="number"
               className="mr-2 p-2 bg-black text-white border border-white"
               placeholder="Max Length"
-              value={maxLength}
-              onChange={handleMaxLengthChange}
+              value={summaryPercent}
+              onChange={handleSummaryPercentChange}
             />
           </div>
         </div>
