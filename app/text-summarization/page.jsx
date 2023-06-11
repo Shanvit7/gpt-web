@@ -42,7 +42,7 @@ const TextSummarizationPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center mt-8 text-black">
+    <section className="flex flex-col items-center mt-8 text-black">
       <div className="w-full">
         <textarea
           className="w-full h-40 p-4 bg-black text-white border border-white resize-none"
@@ -92,7 +92,7 @@ const TextSummarizationPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
