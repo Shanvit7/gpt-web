@@ -21,7 +21,6 @@ const TextMiningPage = () => {
       }
     );
     const response = await data.json();
-    console.log("res 4: ", response);
     if (response?.text) {
       setIsLoading(false);
       return setText(response?.text);
@@ -45,7 +44,6 @@ const TextMiningPage = () => {
   const onReset = () => {
     setSelectedFile(null);
   };
-  console.log(selectedFile);
   return (
     <section className="text-black">
       {!selectedFile ? (

@@ -20,7 +20,6 @@ export async function POST(request) {
     const responseJson = await response.json();
     return new Response(JSON.stringify({ text: responseJson.text }));
   } catch (error) {
-    console.error(error);
     return new Response(
       JSON.stringify({ error: "An error occurred during extraction" })
     );
