@@ -4,22 +4,11 @@ import useSWRMutation from "swr/mutation";
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
+import { fetchSentimentAnalysis } from "../services/synthAIze.service";
 
 const SentimentAnalysisPage = () => {
   const [text, setText] = useState("");
   const [sentiment, setSentiment] = useState("");
-  const fetchSentimentAnalysis = async (apiUrl) => {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text }),
-    });
-    const data = await response.json();
-    return data;
-  };
-
   const handleMutationSuccess = (data) => {
     if (data?.sentiment) {
       setSentiment(data?.sentiment);
@@ -42,7 +31,7 @@ const SentimentAnalysisPage = () => {
   };
 
   const processTextAnalysis = async () => {
-    trigger();
+    trigger({text});
   };
 
   return (

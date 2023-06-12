@@ -7,30 +7,27 @@ import useSWRMutation from "swr/mutation";
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
+import { fetchTextExtraction } from "../services/synthAIze.service";
 
 const TextMiningPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [text, setText] = useState("");
-  const handleExtraction = async (apiUrl,fileData) => {
-    const dataObj = new FormData();
-    dataObj.append("input_file",fileData?.arg);
-    dataObj.append("language", "english");
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      body: dataObj,
-    });
-    const data = await response.json();
-    if (response.ok) {
-      if (data?.text) {
-        setText(data?.text);
-      }
+  const handleMutationSuccess = (data) => {
+    if (data?.text) {
+      setText(data?.text);
+    } else {
+      setText(
+        "Couldn't extract the given text from given file, make sure that the file is not corrupt!"
+      );
     }
   };
-  const { trigger, isMutating: isExtracting, error: extractionError } = useSWRMutation("/api/extract-text-from-file",(apiUrl,data)=>handleExtraction(apiUrl,data));
+  const { trigger, isMutating: isExtracting, error: extractionError } = useSWRMutation("/api/extract-text-from-file",fetchTextExtraction,{
+    onSuccess:handleMutationSuccess
+  });
   const onDrop = async (acceptedFiles) => {
-    const file = acceptedFiles[0];
+    const fileData = acceptedFiles[0];
     setSelectedFile(true);
-    trigger(file);
+    trigger({fileData});
   };
 
   const { getRootProps, getInputProps } = useDropzone({

@@ -6,6 +6,7 @@ import useSWRMutation from "swr/mutation";
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
+import { fetchTextSummarization } from "../services/synthAIze.service";
 
 const TextSummarizationPage = () => {
   const [text, setText] = useState("");
@@ -18,21 +19,6 @@ const TextSummarizationPage = () => {
 
   const handleSummaryPercentChange = (e) => {
     setSummaryPercent(parseInt(e.target.value));
-  };
-  const fetchTextSummarization = async (apiUrl) => {
-    if (summaryPercent < 5) {
-      alert("Summary percent can't be less than 5%");
-      setSummaryPercent(5);
-      return;
-    }
-    const data = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text, summaryPercent }),
-    });
-    return await data.json();
   };
   const handleMutationSuccess = async (data) => {
     if (data.summary) {
@@ -51,7 +37,12 @@ const TextSummarizationPage = () => {
   );
 
   const processTextSummarization = async () => {
-    trigger();
+    if (summaryPercent < 5) {
+      alert("Summary percent can't be less than 5%");
+      setSummaryPercent(5);
+      return;
+    }
+    trigger({text,summaryPercent});
   };
 
   return (
