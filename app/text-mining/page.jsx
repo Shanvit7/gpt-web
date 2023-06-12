@@ -17,7 +17,7 @@ const TextMiningPage = () => {
     dataObj.append("input_file", file);
     dataObj.append("language", "english");
     const data = await fetch(
-      "http://localhost:3000/api/extract-text-from-file",
+      "/api/extract-text-from-file",
       {
         method: "POST",
         body: dataObj,

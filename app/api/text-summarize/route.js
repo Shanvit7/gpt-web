@@ -20,7 +20,7 @@ export async function POST(request) {
   };
   try {
     const response = await fetch(
-      'https://text-analysis12.p.rapidapi.com/summarize-text/api/v1.1',
+      `${process.env.API_URL}/summarize-text/api/v1.1`,
       options
     );
     const responseJson = await response.json();

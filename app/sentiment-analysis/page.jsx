@@ -16,7 +16,7 @@ const SentimentAnalysisPage = () => {
 
   const processTextAnalysis = async () => {
     setIsLoading(true);
-    const data = await fetch("http://localhost:3000/api/sentiment-analysis", {
+    const data = await fetch("/api/sentiment-analysis", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

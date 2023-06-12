@@ -26,7 +26,7 @@ const TextSummarizationPage = () => {
       return;
     }
     setIsLoading(true);
-    const data = await fetch("http://localhost:3000/api/text-summarize", {
+    const data = await fetch("/api/text-summarize", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

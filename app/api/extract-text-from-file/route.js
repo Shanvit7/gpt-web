@@ -14,7 +14,7 @@ export async function POST(request) {
   };
   try {
     const response = await fetch(
-      "https://text-analysis12.p.rapidapi.com/text-mining/api/v1.1",
+      `${process.env.API_URL}/text-mining/api/v1.1`,
       options
     );
     const responseJson = await response.json();
