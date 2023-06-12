@@ -1,5 +1,4 @@
 "use client";
-
 /********* COMPONENTS **********/
 import Loader from "../components/Loaders/Loader";
 import BasicButton from "../components/Button/BasicButton";
@@ -40,11 +39,22 @@ const OCRPage = () => {
   };
 
   const { getRootProps, getInputProps } = useDropzone({
-    accept: "image/*",
     multiple: false,
-    onDrop,
+    onDrop: acceptedFiles => {
+      const photoFiles = acceptedFiles.filter(file =>
+        file.type.startsWith("image/")
+      );
+      const nonPhotoFiles = acceptedFiles.filter(file =>
+        !file.type.startsWith("image/")
+      );
+      if (nonPhotoFiles.length > 0) {
+        alert("Only photo files are allowed.");
+        return;
+      };
+      return onDrop(photoFiles);
+    },
   });
-
+  
   return (
     <section className="text-black">
       <div className="flex flex col items-center justify-center h-2/3 p-8">
@@ -52,7 +62,7 @@ const OCRPage = () => {
           {...getRootProps()}
           className="text-center border-4 border-dashed border-black py-4 px-6 rounded-md cursor-pointer"
         >
-          <input {...getInputProps()} />
+          <input {...getInputProps({ accept: "image/jpeg, image/jpg, image/png" })}/>
           {image ? (
             <figure className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-112 lg:h-112 relative">
               <Image
