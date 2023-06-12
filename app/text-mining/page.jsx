@@ -60,7 +60,7 @@ const TextMiningPage = () => {
               <p>Drag and drop a file here, or click to select a file</p>
             </div>
           </div>
-          <div className="p-8 text-center">
+          <div className="p-8 text-center text-2xl">
             <h1 className="pb-4">How does it work?</h1>
             <h4>
               Text mining, also known as text analytics or natural language
@@ -85,7 +85,7 @@ const TextMiningPage = () => {
         </div>
       ) : (
         <>
-          <h2 className="text-center p-4">{text}</h2>
+          <h2 className="text-center p-4 text-xl">{text}</h2>
           <div className="flex justify-center p-4">
             <BasicButton onClick={onReset}>Try Again</BasicButton>
           </div>

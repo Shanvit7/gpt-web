@@ -79,7 +79,7 @@ const OCRPage = () => {
         </div>
       </div>
       {!image && (
-        <div className="p-8 text-center">
+        <div className="p-8 text-center text-2xl">
           <h1 className="pb-4">How does it work ?</h1>
           <h4>
             OCR &#40;Optical Character Recognition&#41; is a technology that
@@ -108,7 +108,7 @@ const OCRPage = () => {
             }
           </div>
           {text && (
-            <div className="mt-8">
+            <div className="mt-8 text-xl">
               <hr className="bg-black border p-1" />
               <h2 className="p-4 lg:p-8">Text : </h2>
               <p className="p-4 lg:p-8">{text}</p>

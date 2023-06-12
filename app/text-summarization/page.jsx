@@ -78,7 +78,7 @@ const TextSummarizationPage = () => {
           )}
         </div>
         {!summary && (
-          <div className="p-4 text-center">
+          <div className="p-4 text-center text-2xl">
             <h1 className="pb-4">How does it work ?</h1>
             <h4>
               Text summarization works by using algorithms and techniques to
@@ -94,8 +94,8 @@ const TextSummarizationPage = () => {
           </div>
         )}
         {summary && (
-          <div className="mt-8">
-            <hr className="bg-black border p-1" />
+          <div className="mt-8 text-xl">
+            <hr className="bg-black border p-1"/>
             <h2 className="p-4 lg:p-8">Summary:</h2>
             <p className="p-4 lg:p-8">{summary}</p>
           </div>

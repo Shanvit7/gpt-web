@@ -42,7 +42,7 @@ const SentimentAnalysisPage = () => {
           value={text}
           onChange={handleTextChange}
         />
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center mt-4">
           {isLoading ? (
             <div className="flex justify-center items-center">
                  <Loader />
@@ -54,7 +54,7 @@ const SentimentAnalysisPage = () => {
           )}
         </div>
         {!sentiment && (
-          <div className="p-4 text-center">
+          <div className="p-4 text-center text-2xl">
             <h1 className="pb-4">How does it work ?</h1>
             <h4>
               Text sentiment analysis is a natural language processing technique
