@@ -31,7 +31,7 @@ const SentimentAnalysisPage = () => {
   };
 
   const processTextAnalysis = async () => {
-    trigger({text});
+    trigger({ text });
   };
 
   return (
@@ -41,14 +41,18 @@ const SentimentAnalysisPage = () => {
           <div className="h-32 flex justify-center">
             <Error />
           </div>
-           <h1 className="text-3xl text-center">Something went wrong.</h1>
-           <ul className="mt-4 list-disc">
-             Please make sure:
+          <h1 className="text-3xl text-center">Something went wrong.</h1>
+          <ul className="mt-4 list-disc">
+            Please make sure:
             <li>Text provided is comprehensible</li>
             <li>You have an strong internet connection</li>
             <li>Text language should be in English</li>
           </ul>
         </div>
+      ) : isMutating ? (
+        <section className="flex flex-col justify-center items-center">
+          <Loader />
+        </section>
       ) : (
         <div className="w-full">
           <textarea

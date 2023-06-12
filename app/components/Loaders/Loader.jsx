@@ -2,7 +2,7 @@
 /********* HELPERS **********/
 import { useRef, useEffect } from "react";
 import Lottie from "lottie-react";
-import animationData from "../../../public/loader.json";
+import animationData from "../../../public/satellite.json";
 
 const Loader = () => {
   const animationRef = useRef(null);
@@ -15,13 +15,14 @@ const Loader = () => {
     };
   }, []);
   return (
-    <div className="w-32 h-32">
+    <div className="w-52 h-52">
       <Lottie
         animationData={animationData}
         loop={true}
         autoplay={true}
         lottieRef={animationRef}
       />
+          <h3 className="text-center text-black text-2xl p-4">Loading...</h3>
     </div>
   );
 };

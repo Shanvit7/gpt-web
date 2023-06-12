@@ -62,7 +62,7 @@ const OCRPage = () => {
 
   return (
     <section className="text-black">
-      {isError? (
+      {isError ? (
         <div className="flex flex-col justify-center">
           <div className="h-32 flex justify-center">
             <Error />
@@ -71,6 +71,10 @@ const OCRPage = () => {
             Something went wrong. Please try again later.
           </h2>
         </div>
+      ) : isLoading ? (
+        <section className="flex flex-col justify-center items-center">
+          <Loader />
+        </section>
       ) : (
         <>
           <div className="flex flex col items-center justify-center h-2/3 p-8">
@@ -120,13 +124,9 @@ const OCRPage = () => {
           {image && (
             <>
               <div className="flex justify-center">
-                {isLoading ? (
-                  <Loader />
-                ) : (
-                  <BasicButton onClick={processImage} disabled={isLoading}>
-                    Process Image
-                  </BasicButton>
-                )}
+                <BasicButton onClick={processImage} disabled={isLoading}>
+                  Process Image
+                </BasicButton>
               </div>
               {text && (
                 <div className="mt-8 text-xl">

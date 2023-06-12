@@ -42,7 +42,7 @@ const TextSummarizationPage = () => {
       setSummaryPercent(5);
       return;
     }
-    trigger({text,summaryPercent});
+    trigger({ text, summaryPercent });
   };
 
   return (
@@ -60,6 +60,10 @@ const TextSummarizationPage = () => {
             <li>Text language should be in English</li>
           </ul>
         </div>
+      ) : isMutating ? (
+        <section className="flex flex-col justify-center items-center">
+          <Loader />
+        </section>
       ) : (
         <div className="w-full">
           <textarea
@@ -82,16 +86,12 @@ const TextSummarizationPage = () => {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            {isMutating ? (
-              <Loader />
-            ) : (
-              <BasicButton
-                onClick={processTextSummarization}
-                disabled={isMutating}
-              >
-                Summarize
-              </BasicButton>
-            )}
+            <BasicButton
+              onClick={processTextSummarization}
+              disabled={isMutating}
+            >
+              Summarize
+            </BasicButton>
           </div>
           {!summary && (
             <div className="p-4 text-center text-2xl">
