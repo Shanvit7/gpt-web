@@ -1,9 +1,13 @@
 "use client";
+
+/********* COMPONENTS **********/
+import Loader from "../components/Loaders/Loader";
+import BasicButton from "../components/Button/BasicButton";
+/********* HELPERS & UTILS **********/
 import { useState } from "react";
 import Image from "next/image";
 import { createWorker } from "tesseract.js";
 import { useDropzone } from "react-dropzone";
-import BasicButton from "../components/Button/BasicButton";
 
 const OCRPage = () => {
   const [image, setImage] = useState(null);
@@ -84,9 +88,14 @@ const OCRPage = () => {
       {image && (
         <>
           <div className="flex justify-center">
-            <BasicButton onClick={processImage} disabled={isLoading}>
-              {isLoading ? "Processing..." : "Process Image"}
-            </BasicButton>
+            {
+              isLoading ?
+              <Loader />
+              :
+              <BasicButton onClick={processImage} disabled={isLoading}>
+              Process Image
+             </BasicButton>
+            }
           </div>
           {text && (
             <div className="mt-8">

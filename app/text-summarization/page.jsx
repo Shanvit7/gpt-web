@@ -1,24 +1,26 @@
-"use client"
+"use client";
+/********* UTILS  **********/
 import { useState } from "react";
+/********* COMPONENTS **********/
 import BasicButton from "../components/Button/BasicButton";
+import Loader from "../components/Loaders/Loader";
 
 const TextSummarizationPage = () => {
   const [text, setText] = useState("");
   const [summary, setSummary] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [summaryPercent,setSummaryPercent] = useState(10);
+  const [summaryPercent, setSummaryPercent] = useState(10);
 
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
-
 
   const handleSummaryPercentChange = (e) => {
     setSummaryPercent(parseInt(e.target.value));
   };
 
   const processTextSummarization = async () => {
-    if(summaryPercent < 5){
+    if (summaryPercent < 5) {
       alert("Summary percent can't be less than 5%");
       setSummaryPercent(5);
       return;
@@ -64,9 +66,16 @@ const TextSummarizationPage = () => {
           </div>
         </div>
         <div className="flex justify-center items-center">
-        <BasicButton onClick={processTextSummarization} disabled={isLoading}>
-            {isLoading ? "Summarizing..." : "Summarize"}
-          </BasicButton>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <BasicButton
+              onClick={processTextSummarization}
+              disabled={isLoading}
+            >
+              Summarize
+            </BasicButton>
+          )}
         </div>
         {!summary && (
           <div className="p-4 text-center">

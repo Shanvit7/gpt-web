@@ -1,6 +1,9 @@
-"use client"
+"use client";
+/********* UTILS  **********/
 import { useState } from "react";
+/********* COMPONENTS **********/
 import BasicButton from "../components/Button/BasicButton";
+import Loader from "../components/Loaders/Loader";
 
 const SentimentAnalysisPage = () => {
   const [text, setText] = useState("");
@@ -40,30 +43,36 @@ const SentimentAnalysisPage = () => {
           onChange={handleTextChange}
         />
         <div className="flex justify-center items-center">
-        <BasicButton onClick={processTextAnalysis} disabled={isLoading}>
-            {isLoading ? "Analysing..." : "Analyse"}
-          </BasicButton>
+          {isLoading ? (
+            <div className="flex justify-center items-center">
+                 <Loader />
+            </div>
+          ) : (
+            <BasicButton onClick={processTextAnalysis} disabled={isLoading}>
+              Analyse
+            </BasicButton>
+          )}
         </div>
         {!sentiment && (
           <div className="p-4 text-center">
             <h1 className="pb-4">How does it work ?</h1>
             <h4>
-              Text summarization works by using algorithms and techniques to
-              analyze a given text and extract its most important information.
-              It involves identifying key sentences, phrases, or concepts and
-              condensing them into a shorter summary. This can be achieved
-              through extractive methods that select and arrange existing
-              content, or through abstractive methods that generate new
-              sentences based on the understanding of the original text. The
-              goal is to provide a concise and meaningful summary that captures
-              the essence of the source material.
+              Text sentiment analysis is a natural language processing technique
+              used to determine the emotional tone conveyed in a piece of text,
+              such as positive, negative, or neutral. It involves analyzing the
+              words, phrases, and context to gauge the sentiment expressed. This
+              analysis helps in understanding public opinion, customer feedback,
+              and social media sentiment, enabling businesses to make informed
+              decisions and tailor their responses accordingly.
             </h4>
           </div>
         )}
         {sentiment && (
           <div className="mt-8">
             <hr className="bg-black border p-1" />
-            <h1 className="text-center text-bold text-xl p-2">Sentiment:&nbsp;{sentiment.toUpperCase()}</h1>
+            <h1 className="text-center text-bold text-xl p-2">
+              Sentiment:&nbsp;{sentiment.toUpperCase()}
+            </h1>
           </div>
         )}
       </div>

@@ -1,7 +1,10 @@
 "use client";
+/********* UTILS  **********/
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
+/********* COMPONENTS **********/
 import BasicButton from "../components/Button/BasicButton";
+import Loader from "../components/Loaders/Loader";
 
 const TextMiningPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -77,7 +80,9 @@ const TextMiningPage = () => {
           </div>
         </>
       ) : isLoading ? (
-        <h3 className="text-center">Processing....</h3>
+        <div className="flex items-center justify-center">
+            <Loader />
+        </div>
       ) : (
         <>
           <h2 className="text-center p-4">{text}</h2>
