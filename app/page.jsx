@@ -1,9 +1,9 @@
 "use client"
 /********* COMPONENTS **********/
 import BasicButton from './components/Button/BasicButton';
+import Lottie from 'lottie-react';
 /********* HELPERS & UTILS  **********/
 import { useRef, useEffect } from 'react';
-import Lottie from 'lottie-react';
 import Link from 'next/link';
 import { APP_NAME } from './utils';
 import animationData from '../public/file-searching.json';

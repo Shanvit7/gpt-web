@@ -2,41 +2,35 @@
 /********* UTILS  **********/
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
+import useSWRMutation from "swr/mutation";
 /********* COMPONENTS **********/
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
+import Error from "../components/Icons/Error";
 
 const TextMiningPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState("");
-
-  const handleExtraction = async (file) => {
-    setIsLoading(true);
+  const handleExtraction = async (apiUrl,fileData) => {
     const dataObj = new FormData();
-    dataObj.append("input_file", file);
+    dataObj.append("input_file",fileData?.arg);
     dataObj.append("language", "english");
-    const data = await fetch(
-      "/api/extract-text-from-file",
-      {
-        method: "POST",
-        body: dataObj,
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      body: dataObj,
+    });
+    const data = await response.json();
+    if (response.ok) {
+      if (data?.text) {
+        setText(data?.text);
       }
-    );
-    const response = await data.json();
-    if (response?.text) {
-      setIsLoading(false);
-      return setText(response?.text);
-    } else {
-      setIsLoading(false);
-      return setText("Something went wrong. Please try again later");
     }
   };
-
+  const { trigger, isMutating: isExtracting, error: extractionError } = useSWRMutation("/api/extract-text-from-file",(apiUrl,data)=>handleExtraction(apiUrl,data));
   const onDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
     setSelectedFile(true);
-    handleExtraction(file);
+    trigger(file);
   };
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -47,6 +41,7 @@ const TextMiningPage = () => {
   const onReset = () => {
     setSelectedFile(null);
   };
+
   return (
     <section className="text-black">
       {!selectedFile ? (
@@ -64,7 +59,7 @@ const TextMiningPage = () => {
             <h1 className="pb-4">How does it work?</h1>
             <h4>
               Text mining, also known as text analytics or natural language
-              processing &#40;NLP&#41;, is a technology that enables computers to
+              processing (NLP), is a technology that enables computers to
               extract meaningful information and insights from unstructured text
               data. By employing techniques such as information retrieval,
               machine learning, and linguistic analysis, text mining facilitates
@@ -79,9 +74,18 @@ const TextMiningPage = () => {
             </h4>
           </div>
         </>
-      ) : isLoading ? (
+      ) : isExtracting ? (
         <div className="flex items-center justify-center">
-            <Loader />
+          <Loader />
+        </div>
+      ) : extractionError ? (
+        <div className="flex flex-col justify-center">
+          <div className="h-32 flex justify-center">
+            <Error />
+          </div>
+          <h2 className="text-center p-4 text-xl">
+            Something went wrong. Please try again later.
+          </h2>
         </div>
       ) : (
         <>
