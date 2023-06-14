@@ -4,7 +4,14 @@ import useSWRMutation from "swr/mutation";
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
+import ShowSentiment from "../components/Icons/ShowSentiment";
 import { fetchSentimentAnalysis } from "../services/synthAIze.service";
+
+// Sentiment files
+import sad from "../../public/sad.json";
+import happy from "../../public/happy.json";
+import neutral from "../../public/neutral.json";
+import { SENTIMENT_HAPPY, SENTIMENT_SAD } from "../utils";
 
 const SentimentAnalysisPage = () => {
   const [text, setText] = useState("");
@@ -90,8 +97,19 @@ const SentimentAnalysisPage = () => {
           {sentiment && (
             <div className="mt-8">
               <hr className="bg-black border p-1" />
+              <div className="flex justify-center align-center">
+                <ShowSentiment
+                  animationData={
+                    sentiment.toUpperCase() === SENTIMENT_HAPPY
+                      ? happy
+                      : sentiment.toUpperCase() === SENTIMENT_SAD
+                      ? sad
+                      : neutral
+                  }
+                />
+              </div>
               <h1 className="text-center text-bold text-xl p-2">
-                Sentiment:&nbsp;{sentiment.toUpperCase()}
+                {sentiment.toUpperCase()}
               </h1>
             </div>
           )}

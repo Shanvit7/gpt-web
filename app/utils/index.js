@@ -17,3 +17,5 @@ export const menuOptions = [
 
 // CONSTANTS
 export const APP_NAME = "SynthiAIze";
+export const SENTIMENT_HAPPY = 'POSITIVE'
+export const SENTIMENT_SAD = 'NEGATIVE'
