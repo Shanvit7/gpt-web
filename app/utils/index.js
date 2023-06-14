@@ -1,3 +1,4 @@
+import Github from "../components/Icons/Github";
 // HELPERS
 export const menuOptions = [
   { label: "Home", url: "/home" },
@@ -9,10 +10,11 @@ export const menuOptions = [
       { label: 'Text Mining', url: '/text-mining' },
       { label: 'Sentiment Analysis',url:'/sentiment-analysis'},
       { label: 'Language Detection',url:'/comming-soon'},
-      { label: 'Entity Recognition',url:'/comming-soon'}
+      { label: 'Entity Recognition',url:'/comming-soon'},
     ],
   },
-  { label: "About", url: "/about" },
+  { label: "About", url: "/comming-soon" },
+  {label: <Github />,url:'/comming-soon'},
 ];
 
 // CONSTANTS

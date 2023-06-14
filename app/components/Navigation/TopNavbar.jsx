@@ -42,7 +42,7 @@ const TopNavbar = ({ pageTitle = APP_NAME }) => {
           </div>
 
           <div className="hidden sm:block">
-            <div className="ml-10 flex items-baseline space-x-4 text-black">
+            <div className="ml-10 flex items-center items-baseline space-x-4 text-black">
               {menuOptions.map((option, index) =>
                 option.subOptions ? (
                   <div
