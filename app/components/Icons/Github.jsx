@@ -1,6 +1,6 @@
 const Github = () => {
   return (
-    <figure  className="flex justify-center w-full h-8 text-black">
+    <figure className="flex justify-center w-full h-8 text-black">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" id="github">
         <g fill="#181616">
           <path

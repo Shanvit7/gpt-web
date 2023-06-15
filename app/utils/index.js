@@ -14,7 +14,7 @@ export const menuOptions = [
     ],
   },
   { label: "About", url: "/comming-soon" },
-  {label: <Github />,url:'/comming-soon'},
+  {label: <Github />,url:'https://github.com/Shanvit7/synthiAIze-web'},
 ];
 
 // CONSTANTS
