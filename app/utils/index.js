@@ -1,4 +1,10 @@
 import Github from "../components/Icons/Github";
+
+// CONSTANTS
+export const APP_NAME = "SynthiAIze";
+export const SENTIMENT_HAPPY = "POSITIVE";
+export const SENTIMENT_SAD = "NEGATIVE";
+export const GITHUB_LINK = "https://github.com/Shanvit7/synthiAIze-web";
 // HELPERS
 export const menuOptions = [
   { label: "Home", url: "/home" },
@@ -14,10 +20,5 @@ export const menuOptions = [
     ],
   },
   { label: "About", url: "/about" },
-  { label: <Github />, url: "https://github.com/Shanvit7/synthiAIze-web" },
+  { label: <Github />, url: GITHUB_LINK },
 ];
-
-// CONSTANTS
-export const APP_NAME = "SynthiAIze";
-export const SENTIMENT_HAPPY = "POSITIVE";
-export const SENTIMENT_SAD = "NEGATIVE";
