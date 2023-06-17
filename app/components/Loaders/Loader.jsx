@@ -1,5 +1,5 @@
 "use client";
-/********* HELPERS **********/
+/********* UTILS **********/
 import { useRef, useEffect } from "react";
 import Lottie from "lottie-react";
 import animationData from "../../../public/satellite.json";
@@ -22,7 +22,7 @@ const Loader = () => {
         autoplay={true}
         lottieRef={animationRef}
       />
-          <h3 className="text-center text-black text-2xl p-4">Loading...</h3>
+      <h3 className="text-center text-black text-2xl p-4">Loading...</h3>
     </div>
   );
 };

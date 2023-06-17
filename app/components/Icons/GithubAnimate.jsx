@@ -1,7 +1,8 @@
 "use client";
+/********* UTILS **********/
 import Lottie from "lottie-react";
 import { useRef, useEffect } from "react";
-import animationData from '../../../public/github.json';
+import animationData from "../../../public/github.json";
 const GithubAnimate = () => {
   const animationRef = useRef(null);
 
@@ -13,12 +14,12 @@ const GithubAnimate = () => {
     };
   }, []);
   return (
-      <Lottie
-        animationData={animationData}
-        loop={true}
-        autoplay={true}
-        lottieRef={animationRef}
-      />
+    <Lottie
+      animationData={animationData}
+      loop={true}
+      autoplay={true}
+      lottieRef={animationRef}
+    />
   );
 };
 

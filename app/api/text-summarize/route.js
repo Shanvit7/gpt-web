@@ -1,10 +1,10 @@
 export async function POST(request) {
-    const { text,summaryPercent } = await request.json();
-    const dataObj= {
-        language: 'english',
-        text: text,
-        summary_percent: summaryPercent || 5
-    }
+  const { text, summaryPercent } = await request.json();
+  const dataObj = {
+    language: "english",
+    text: text,
+    summary_percent: summaryPercent || 5,
+  };
   const options = {
     method: "POST",
     headers: {

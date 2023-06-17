@@ -1,3 +1,4 @@
+/******** ICONS **********/
 import Github from "../components/Icons/Github";
 
 // CONSTANTS

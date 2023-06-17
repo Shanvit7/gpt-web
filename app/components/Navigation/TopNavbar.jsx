@@ -1,5 +1,5 @@
 "use client";
-import { useState ,useRef} from "react";
+import { useState, useRef } from "react";
 /********* COMPONENTS **********/
 import Sidebar from "./Sidebar";
 import TopNavDropdown from "./TopNavDropdown";
@@ -21,7 +21,7 @@ const TopNavbar = ({ pageTitle = APP_NAME }) => {
     setSidebarOpen(!isSidebarOpen);
     if (animationRef.current) {
       if (isSidebarOpen) {
-        animationRef.current.playSegments([40,90], true);
+        animationRef.current.playSegments([40, 90], true);
       } else {
         animationRef.current.playSegments([0, 40], true);
       }
@@ -82,13 +82,13 @@ const TopNavbar = ({ pageTitle = APP_NAME }) => {
               type="button"
               className="text-black hover:text-gray-600 focus:outline-none focus:text-black"
             >
-                <Lottie
-                 animationData={animationData}
-                 loop={false}
-                 autoplay={false}
-                 lottieRef={animationRef}
-                 className="w-8 h-8"
-                />
+              <Lottie
+                animationData={animationData}
+                loop={false}
+                autoplay={false}
+                lottieRef={animationRef}
+                className="w-8 h-8"
+              />
             </button>
           </div>
         </div>

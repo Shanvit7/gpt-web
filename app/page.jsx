@@ -1,12 +1,12 @@
-"use client"
+"use client";
 /********* COMPONENTS **********/
-import BasicButton from './components/Button/BasicButton';
-import Lottie from 'lottie-react';
+import BasicButton from "./components/Button/BasicButton";
+import Lottie from "lottie-react";
 /********* HELPERS & UTILS  **********/
-import { useRef, useEffect } from 'react';
-import Link from 'next/link';
-import { APP_NAME } from './utils';
-import animationData from '../public/file-searching.json';
+import { useRef, useEffect } from "react";
+import Link from "next/link";
+import { APP_NAME } from "./utils";
+import animationData from "../public/file-searching.json";
 
 const LandingPage = () => {
   const animationRef = useRef(null);
@@ -32,7 +32,9 @@ const LandingPage = () => {
         </div>
         <div className="container pt-8 mx-auto text-center">
           <h1 className="text-5xl font-bold text-black mb-8">{APP_NAME}</h1>
-          <p className="text-black text-lg mb-8">Empowering Text Understanding with AI</p>
+          <p className="text-black text-lg mb-8">
+            Empowering Text Understanding with AI
+          </p>
           <BasicButton>
             <Link href="/home">Get started</Link>
           </BasicButton>

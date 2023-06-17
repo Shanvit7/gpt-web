@@ -4,7 +4,7 @@ const DropdownCaret = ({ isUp }) => {
       className="w-4 h-4 fill-current text-gray-400"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
-      style={{ transform: `${isUp ? 'rotate(180deg)' : 'rotate(0deg)' }` }}
+      style={{ transform: `${isUp ? "rotate(180deg)" : "rotate(0deg)"}` }}
     >
       <path
         fillRule="evenodd"

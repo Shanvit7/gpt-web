@@ -1,17 +1,18 @@
 "use client";
-import { useState } from "react";
-import useSWRMutation from "swr/mutation";
+/********* COMPONENTS **********/
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
+/********* HELPERS & UTILS & ICONS **********/
+import { useState } from "react";
+import useSWRMutation from "swr/mutation";
 import ShowSentiment from "../components/Icons/ShowSentiment";
-import { fetchSentimentAnalysis } from "../services/synthAIze.service";
-
-// Sentiment files
 import sad from "../../public/sad.json";
 import happy from "../../public/happy.json";
 import neutral from "../../public/neutral.json";
 import { SENTIMENT_HAPPY, SENTIMENT_SAD } from "../utils";
+/********* SERVICES **********/
+import { fetchSentimentAnalysis } from "../services/synthAIze.service";
 
 const SentimentAnalysisPage = () => {
   const [text, setText] = useState("");

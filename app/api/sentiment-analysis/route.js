@@ -1,9 +1,9 @@
 export async function POST(request) {
-    const { text } = await request.json();
-    const dataObj= {
-        language: 'english',
-        text: text
-    }
+  const { text } = await request.json();
+  const dataObj = {
+    language: "english",
+    text: text,
+  };
   const options = {
     method: "POST",
     headers: {

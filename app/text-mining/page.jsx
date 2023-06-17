@@ -7,6 +7,7 @@ import useSWRMutation from "swr/mutation";
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
+/********* SERVICES **********/
 import { fetchTextExtraction } from "../services/synthAIze.service";
 
 const TextMiningPage = () => {
@@ -21,13 +22,17 @@ const TextMiningPage = () => {
       );
     }
   };
-  const { trigger, isMutating: isExtracting, error: extractionError } = useSWRMutation("/api/extract-text-from-file",fetchTextExtraction,{
-    onSuccess:handleMutationSuccess
+  const {
+    trigger,
+    isMutating: isExtracting,
+    error: extractionError,
+  } = useSWRMutation("/api/extract-text-from-file", fetchTextExtraction, {
+    onSuccess: handleMutationSuccess,
   });
   const onDrop = async (acceptedFiles) => {
     const fileData = acceptedFiles[0];
     setSelectedFile(true);
-    trigger({fileData});
+    trigger({ fileData });
   };
 
   const { getRootProps, getInputProps } = useDropzone({

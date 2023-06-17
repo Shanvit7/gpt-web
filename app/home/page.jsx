@@ -52,7 +52,9 @@ const HomePage = async () => {
               <SentimentAnalysis />
             </figure>
             <h2 className="text-lg font-bold mt-2">Sentiment Analysis</h2>
-            <p className="font-medium">&#40;Find emotion expressed in a piece of text&#41;</p>
+            <p className="font-medium">
+              &#40;Find emotion expressed in a piece of text&#41;
+            </p>
           </div>
         </Link>
 

@@ -14,19 +14,13 @@ const Sidebar = ({ isSidebarOpen = false, pageTitle }) => {
                   (option, index) =>
                     option.label !== pageTitle && (
                       <li className="font-bold" key={index}>
-                        <Link
-                          href={option.url}
-                        >
-                          {option.label}
-                        </Link>
+                        <Link href={option.url}>{option.label}</Link>
                       </li>
                     )
                 )
               : option.label !== pageTitle && (
                   <li className="font-bold" key={index}>
-                    <Link href={option.url}>
-                      {option.label}
-                    </Link>
+                    <Link href={option.url}>{option.label}</Link>
                   </li>
                 )
           )}

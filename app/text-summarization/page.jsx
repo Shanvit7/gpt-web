@@ -6,6 +6,7 @@ import useSWRMutation from "swr/mutation";
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
+/********* SERVICES **********/
 import { fetchTextSummarization } from "../services/synthAIze.service";
 
 const TextSummarizationPage = () => {
