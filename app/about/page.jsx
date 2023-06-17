@@ -35,7 +35,8 @@ const AboutPage = () => {
       <p className="text-lg mb-6">
         **This is project is still work in progress & is built on Next JS 13
         &#40;Unstable&#41;. Apologizing for any difficulties you might face
-        during the usage while working to provide you with a better experience.
+        during the usage and working to provide you with a better experience.
+        For any suggestions, or queries reach out at <code className="text-sm">shanvit7@gmail.com</code>
       </p>
       <div className="flex lg:flex-row flex-col items-center justify-between">
         <h3 className="text-xl font-bold mb-4">Built on:</h3>
