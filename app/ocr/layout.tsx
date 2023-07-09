@@ -1,9 +1,12 @@
+import { FC } from "react";
 /********* COMPONENTS **********/
 import TopNavbar from "../components/Navigation/TopNavbar";
 import BackButton from "../components/Button/BackButton";
+/********* INTERFACES **********/
+import { PageLayoutProps } from "../utils/interfaces";
 
-const TextSummarizationLayout = ({ children }) => {
-  const pageTitle = "Text Summarization";
+const OCRLayout : FC <PageLayoutProps> = ({ children }) => {
+  const pageTitle = "Image to Text";
   return (
     <section className="w-screen h-screen overflow-x-hidden">
       <TopNavbar pageTitle={pageTitle} />
@@ -16,4 +19,4 @@ const TextSummarizationLayout = ({ children }) => {
   );
 };
 
-export default TextSummarizationLayout;
+export default OCRLayout;

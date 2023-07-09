@@ -1,3 +1,4 @@
+import { FC } from 'react';
 /********* COMPONENTS **********/
 import OCR from "../components/Icons/OCR";
 import TextSummary from "../components/Icons/TextSummary";
@@ -8,7 +9,7 @@ import NamedEntityRecognition from "../components/Icons/NamedEntityRecognition";
 /********* HELPERS **********/
 import Link from "next/link";
 
-const HomePage = async () => {
+const HomePage: FC = () => {
   return (
     <div className="container mx-auto p-4  mt-4 lg:mt-16">
       <div className="grid grid-cols-1 md:grid-cols-3 text-black gap-4">

@@ -1,9 +1,12 @@
+import { FC } from 'react';
 /********* COMPONENTS **********/
 import TopNavbar from "../components/Navigation/TopNavbar";
 import BackButton from "../components/Button/BackButton";
+/********* INTERFACES **********/
+import { PageLayoutProps } from "../utils/interfaces";
 
-const SentimentAnalysisLayout = ({ children }) => {
-  const pageTitle = "Sentiment Analysis";
+const TextSummarizationLayout : FC <PageLayoutProps> = ({ children }) => {
+  const pageTitle = "Text Summarization";
   return (
     <section className="w-screen h-screen overflow-x-hidden">
       <TopNavbar pageTitle={pageTitle} />
@@ -16,4 +19,4 @@ const SentimentAnalysisLayout = ({ children }) => {
   );
 };
 
-export default SentimentAnalysisLayout;
+export default TextSummarizationLayout;

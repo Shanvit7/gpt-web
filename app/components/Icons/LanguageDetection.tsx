@@ -1,4 +1,5 @@
-const LanguageDetection = () => {
+import { FC } from 'react';
+const LanguageDetection : FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

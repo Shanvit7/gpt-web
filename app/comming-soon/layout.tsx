@@ -1,9 +1,12 @@
+import { FC } from 'react';
 /********* COMPONENTS **********/
 import TopNavbar from "../components/Navigation/TopNavbar";
 import BackButton from "../components/Button/BackButton";
+/********* INTERFACES **********/
+import { PageLayoutProps } from '../utils/interfaces';
 
-const TextMiningLayout = ({ children }) => {
-  const pageTitle = "Text Mining";
+const CommingSoonLayout :FC <PageLayoutProps> = ({ children }) => {
+  const pageTitle = "Comming Soon";
   return (
     <section className="w-screen h-screen overflow-x-hidden">
       <TopNavbar pageTitle={pageTitle} />
@@ -16,4 +19,4 @@ const TextMiningLayout = ({ children }) => {
   );
 };
 
-export default TextMiningLayout;
+export default CommingSoonLayout;

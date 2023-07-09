@@ -1,9 +1,11 @@
 "use client";
+import {FC} from 'react';
 /********* UTILS & HELPERS **********/
-import { menuOptions } from "@/app/utils";
+import { menuOptions } from "../../utils";
 import Link from "next/link";
-
-const Sidebar = ({ isSidebarOpen = false, pageTitle }) => {
+/********* INTERFACES **********/
+import { SidebarProps } from '../../utils/interfaces';
+const Sidebar : FC <SidebarProps> = ({ isSidebarOpen = false, pageTitle }) => {
   if (isSidebarOpen)
     return (
       <section className="lg:hidden pb-4 flex flex-col justify-center items-center">
@@ -20,7 +22,7 @@ const Sidebar = ({ isSidebarOpen = false, pageTitle }) => {
                 )
               : option.label !== pageTitle && (
                   <li className="font-bold" key={index}>
-                    <Link href={option.url}>{option.label}</Link>
+                    <Link href={option.url!}>{option.label}</Link>
                   </li>
                 )
           )}

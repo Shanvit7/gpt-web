@@ -1,10 +1,15 @@
-const DropdownCaret = ({ isUp }) => {
+import React, { FC } from 'react';
+/******** INTERFACES **********/
+import { DropdownCaretProps } from '../../utils/interfaces';
+
+
+const DropdownCaret: FC<DropdownCaretProps> = ({ isUp }) => {
   return (
     <svg
       className="w-4 h-4 fill-current text-gray-400"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
-      style={{ transform: `${isUp ? "rotate(180deg)" : "rotate(0deg)"}` }}
+      style={{ transform: `${isUp ? 'rotate(180deg)' : 'rotate(0deg)'}` }}
     >
       <path
         fillRule="evenodd"

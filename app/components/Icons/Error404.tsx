@@ -1,4 +1,5 @@
-const Error404 = () => {
+import { FC } from 'react';
+const Error404 : FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

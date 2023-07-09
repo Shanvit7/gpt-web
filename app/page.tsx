@@ -1,21 +1,21 @@
 "use client";
+import {FC} from 'react';
 /********* COMPONENTS **********/
 import BasicButton from "./components/Button/BasicButton";
-import Lottie from "lottie-react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 /********* HELPERS & UTILS  **********/
 import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { APP_NAME } from "./utils";
 import animationData from "../public/file-searching.json";
 
-const LandingPage = () => {
-  const animationRef = useRef(null);
-
+const LandingPage: FC = () => {
+  const animationRef = useRef<LottieRefCurrentProps>(null);
   useEffect(() => {
     const animation = animationRef.current;
-    animation.play();
+    animation!.play();
     return () => {
-      animation.destroy();
+      animation!.destroy();
     };
   }, []);
 

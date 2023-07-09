@@ -1,4 +1,8 @@
-const BasicButton = ({ children, ...props }) => {
+import { ReactNode,FC } from "react";
+interface BackButtonProps{
+  children:ReactNode;
+};
+const BasicButton : FC <BackButtonProps> = ({ children, ...props }) => {
   return (
     <button
       {...props}

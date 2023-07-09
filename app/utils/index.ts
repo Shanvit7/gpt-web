@@ -1,13 +1,14 @@
 /******** ICONS **********/
 import Github from "../components/Icons/Github";
-
+/******** INTERFACES **********/
+import { MenuOptionsInterface } from "./interfaces";
 // CONSTANTS
-export const APP_NAME = "SynthiAIze";
-export const SENTIMENT_HAPPY = "POSITIVE";
-export const SENTIMENT_SAD = "NEGATIVE";
-export const GITHUB_LINK = "https://github.com/Shanvit7/synthiAIze-web";
+export const APP_NAME : string = "SynthiAIze";
+export const SENTIMENT_HAPPY: string = "POSITIVE";
+export const SENTIMENT_SAD: string = "NEGATIVE";
+export const GITHUB_LINK: string | URL = "https://github.com/Shanvit7/synthiAIze-web";
 // HELPERS
-export const menuOptions = [
+export const menuOptions : MenuOptionsInterface [] = [
   { label: "Home", url: "/home" },
   {
     label: "Tools",
@@ -21,5 +22,5 @@ export const menuOptions = [
     ],
   },
   { label: "About", url: "/about" },
-  { label: <Github />, url: GITHUB_LINK },
+  { label: "Github", url: GITHUB_LINK },
 ];

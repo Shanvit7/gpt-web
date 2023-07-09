@@ -1,12 +1,13 @@
 "use client";
+import { FC } from 'react'; 
 /********* HELPERS  **********/
 import { useRef } from "react";
-import Lottie from "lottie-react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import animationData from "../../../public/back.json";
 import { useRouter } from "next/navigation";
 
-const BackButton = () => {
-  const animationRef = useRef(null);
+const BackButton : FC = () => {
+  const animationRef = useRef<LottieRefCurrentProps>(null);
   const router = useRouter();
 
   const handleBack = () => {

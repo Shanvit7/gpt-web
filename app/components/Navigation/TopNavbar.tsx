@@ -1,17 +1,18 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, FC } from "react";
 /********* COMPONENTS **********/
 import Sidebar from "./Sidebar";
 import TopNavDropdown from "./TopNavDropdown";
+/******** INTERFACES **********/
+import { MenuOptionsInterface, TopNavbarProps } from '../../utils/interfaces';
 /********* ICONS , HELPERS & UTILS  **********/
-import Lottie from "lottie-react";
+import Lottie,{ LottieRefCurrentProps } from "lottie-react";
 import animationData from "../../../public/burger-menu.json";
-import { menuOptions, APP_NAME } from "@/app/utils";
+import { menuOptions,APP_NAME } from "../../utils";
 import Link from "next/link";
 
-const TopNavbar = ({ pageTitle = APP_NAME }) => {
-  const animationRef = useRef(null);
-  const isCross = animationRef.current ? animationRef.current.isPaused : false;
+const TopNavbar : FC <TopNavbarProps> = ({ pageTitle = APP_NAME }) => {
+  const animationRef = useRef<LottieRefCurrentProps>(null)
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropdown = () => {
@@ -43,7 +44,7 @@ const TopNavbar = ({ pageTitle = APP_NAME }) => {
 
           <div className="hidden sm:block">
             <div className="ml-10 flex items-center items-baseline space-x-4 text-black">
-              {menuOptions.map((option, index) =>
+              {menuOptions.map((option : MenuOptionsInterface, index) =>
                 option.subOptions ? (
                   <div
                     key={index}
@@ -66,7 +67,7 @@ const TopNavbar = ({ pageTitle = APP_NAME }) => {
                       pageTitle === option.label &&
                       `underline underline-offset-2`
                     } hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium`}
-                    href={option.url}
+                    href={option.url!}
                     key={index}
                   >
                     {option.label}

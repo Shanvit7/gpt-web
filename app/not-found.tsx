@@ -1,3 +1,4 @@
+import { FC } from 'react';
 /********* COMPONENTS **********/
 import BasicButton from "./components/Button/BasicButton";
 /********* HELPERS & UTILS  **********/
@@ -5,7 +6,7 @@ import Error404 from "./components/Icons/Error404";
 import Link from "next/link";
 import { APP_NAME } from "./utils";
 
-const NotFoundPage = () => {
+const NotFoundPage: FC = () => {
   return (
     <div>
       <div className="min-h-screen flex flex-col justify-center items-center">

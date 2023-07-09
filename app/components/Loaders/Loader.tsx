@@ -1,17 +1,17 @@
 "use client";
+import { FC } from 'react';
 /********* UTILS **********/
 import { useRef, useEffect } from "react";
-import Lottie from "lottie-react";
+import Lottie,{LottieRefCurrentProps} from "lottie-react";
 import animationData from "../../../public/satellite.json";
 
-const Loader = () => {
-  const animationRef = useRef(null);
-
+const Loader : FC = () => {
+  const animationRef = useRef<LottieRefCurrentProps>(null);
   useEffect(() => {
     const animation = animationRef.current;
-    animation.play();
+    animation!.play();
     return () => {
-      animation.destroy();
+      animation!.destroy();
     };
   }, []);
   return (
