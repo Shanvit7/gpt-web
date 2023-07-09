@@ -9,7 +9,7 @@ With synthAIze, you can save valuable time and resources by automating repetitiv
 
 Experience the magic of text processing with synthAIze and unlock the full potential of AI-driven solutions for your personal or business needs.
 
-## Please note that this project is still a work in progress and is built on Next.js 13 (Unstable). We apologize for any difficulties you might face during usage and are working to provide you with a better experience. For any suggestions or queries, feel free to reach out to us at shanvit7@gmail.com.
+## Please note that this project is still a work in progress and is built on Next.js 13 (Unstable). Apologizing for any difficulties you might face during usage and working to provide you with a better experience. For any suggestions or queries, feel free to reach out to me at shanvit7@gmail.com.
 
 ### Features
 * AI-based text processing services
