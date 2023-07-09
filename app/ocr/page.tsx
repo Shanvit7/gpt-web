@@ -5,12 +5,12 @@ import Loader from "../components/Loaders/Loader";
 import BasicButton from "../components/Button/BasicButton";
 /********* HELPERS & UTILS **********/
 import Image from "next/image";
-import { createWorker } from "tesseract.js";
+import { ImageLike, createWorker } from "tesseract.js";
 import { useDropzone } from "react-dropzone";
 import Error from "../components/Icons/Error";
 
 const OCRPage : FC = () => {
-  const [image, setImage] = useState<string | null>(null);
+  const [image, setImage] = useState<string | ImageLike |null>(null);
   const [text, setText] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setError] = useState<boolean>(false);
