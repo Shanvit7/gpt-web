@@ -10,7 +10,7 @@ import { useDropzone } from "react-dropzone";
 import Error from "../components/Icons/Error";
 
 const OCRPage : FC = () => {
-  const [image, setImage] = useState<string | ImageLike>('');
+  const [image, setImage] = useState<any>('');
   const [text, setText] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setError] = useState<boolean>(false);
