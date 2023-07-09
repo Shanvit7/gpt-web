@@ -4,9 +4,12 @@ import {FC} from 'react';
 import { menuOptions } from "../../utils";
 import Link from "next/link";
 /********* INTERFACES **********/
-import { SidebarProps } from '../../utils/interfaces';
-const Sidebar : FC <SidebarProps> = ({ isSidebarOpen = false, pageTitle }) => {
-  if (isSidebarOpen)
+import { ResponsiveDrawerProps } from '../../utils/interfaces';
+
+// NOTE : This component will only be visible on mid-size screens on top right (mobile,tablets,etc);
+
+const ResponsiveDrawer : FC <ResponsiveDrawerProps> = ({ isResponsiveDrawerOpen = false, pageTitle }) => {
+  if (isResponsiveDrawerOpen)
     return (
       <section className="lg:hidden pb-4 flex flex-col justify-center items-center">
         <ul className="flex flex-col gap-4 text-black text-center">
@@ -22,7 +25,7 @@ const Sidebar : FC <SidebarProps> = ({ isSidebarOpen = false, pageTitle }) => {
                 )
               : option.label !== pageTitle && (
                   <li className="font-bold" key={index}>
-                    <Link href={option.url!}>{option.label}</Link>
+                    <Link href={option.url!}>{typeof option.label === 'string' ? option.label: <option.label/>}</Link>
                   </li>
                 )
           )}
@@ -31,4 +34,4 @@ const Sidebar : FC <SidebarProps> = ({ isSidebarOpen = false, pageTitle }) => {
     );
 };
 
-export default Sidebar;
+export default ResponsiveDrawer;

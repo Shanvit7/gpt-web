@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, FC } from "react";
 /********* COMPONENTS **********/
-import Sidebar from "./Sidebar";
+import ResponsiveDrawer from "./ResponsiveDrawer";
 import TopNavDropdown from "./TopNavDropdown";
 /******** INTERFACES **********/
 import { MenuOptionsInterface, TopNavbarProps } from '../../utils/interfaces';
@@ -13,15 +13,15 @@ import Link from "next/link";
 
 const TopNavbar : FC <TopNavbarProps> = ({ pageTitle = APP_NAME }) => {
   const animationRef = useRef<LottieRefCurrentProps>(null)
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isResponsiveDrawerOpen, setResponsiveDrawerOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
-  const handleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
+  const handleResponsiveDrawer = () => {
+    setResponsiveDrawerOpen(!isResponsiveDrawerOpen);
     if (animationRef.current) {
-      if (isSidebarOpen) {
+      if (isResponsiveDrawerOpen) {
         animationRef.current.playSegments([40, 90], true);
       } else {
         animationRef.current.playSegments([0, 40], true);
@@ -70,7 +70,7 @@ const TopNavbar : FC <TopNavbarProps> = ({ pageTitle = APP_NAME }) => {
                     href={option.url!}
                     key={index}
                   >
-                    {option.label}
+                    {typeof option.label === 'string' ? option.label: <option.label/>}
                   </Link>
                 )
               )}
@@ -79,7 +79,7 @@ const TopNavbar : FC <TopNavbarProps> = ({ pageTitle = APP_NAME }) => {
 
           <div className="flex sm:hidden">
             <button
-              onClick={handleSidebar}
+              onClick={handleResponsiveDrawer}
               type="button"
               className="text-black hover:text-gray-600 focus:outline-none focus:text-black"
             >
@@ -94,7 +94,7 @@ const TopNavbar : FC <TopNavbarProps> = ({ pageTitle = APP_NAME }) => {
           </div>
         </div>
       </div>
-      <Sidebar isSidebarOpen={isSidebarOpen} pageTitle={pageTitle} />
+      <ResponsiveDrawer isResponsiveDrawerOpen={isResponsiveDrawerOpen} pageTitle={pageTitle} />
     </nav>
   );
 };

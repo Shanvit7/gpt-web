@@ -13,8 +13,8 @@ export interface TopNavbarProps {
     pageTitle:String;
 };
 
-export interface SidebarProps{
-    isSidebarOpen:Boolean;
+export interface ResponsiveDrawerProps{
+    isResponsiveDrawerOpen:Boolean;
     pageTitle:String;
 };
 
@@ -32,7 +32,7 @@ export interface TopNavDropdownProps{
 };
   
 export interface MenuOptionsInterface {
-    label : string,
+    label : string | any,
     url?: string | URL,
     subOptions?: {label:string,url:string | URL}[]
 };

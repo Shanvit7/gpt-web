@@ -22,5 +22,5 @@ export const menuOptions : MenuOptionsInterface [] = [
     ],
   },
   { label: "About", url: "/about" },
-  { label: "Github", url: GITHUB_LINK },
+  { label: Github, url: GITHUB_LINK },
 ];
