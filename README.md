@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# About synthAIze
 
-First, run the development server:
+synthAIze is a web application built on Next.js that offers a variety of AI-based text services. Powered by cloud functions and RapidAPI, it combines cutting-edge artificial intelligence with user-friendly features to deliver advanced text processing capabilities.
+
+Whether you need to convert images to text, perform language translation, conduct sentiment analysis, or leverage any other AI-driven text service, synthAIze has got you covered. Our platform harnesses the power of machine learning models to provide accurate and efficient results for your text-related tasks.
+
+With synthAIze, you can save valuable time and resources by automating repetitive text processing tasks. Our intuitive interface makes it effortless to access and utilize powerful AI capabilities without the need for complex setups or extensive coding knowledge.
+
+Experience the magic of text processing with synthAIze and unlock the full potential of AI-driven solutions for your personal or business needs.
+
+## Please note that this project is still a work in progress and is built on Next.js 13 (Unstable). We apologize for any difficulties you might face during usage and are working to provide you with a better experience. For any suggestions or queries, feel free to reach out to us at shanvit7@gmail.com.
+
+### Features
+* AI-based text processing services
+* Image to text conversion
+* Language detection (Comming Soon)
+* Sentiment analysis
+* And more!
+
+### Installation
+1 .Clone the repository:
+
+```bash
+git clone https://github.com/Shanvit7/syntAIze-web.git
+```
+2. Install the dependencies:
+
+```bash
+npm install
+```
+3. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open your browser and visit http://localhost:3000 to access synthAIze.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Technologies Used
+* Next.js
+* React.js
+* Cloud Functions
+* RapidAPI
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Contributing
+Contributions are welcome! If you would like to contribute to Clutchplay, please follow these steps:
 
-## Learn More
+* Fork the repository.
+* Create a new branch for your feature or bug fix.
+* Make your modifications and commit your changes.
+* Push your branch to your forked repository.
+* Submit a pull request to the main repository.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
