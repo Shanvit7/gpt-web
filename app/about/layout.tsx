@@ -1,8 +1,11 @@
+import {FC} from 'react';
 /********* COMPONENTS **********/
 import TopNavbar from "../components/Navigation/TopNavbar";
 import BackButton from "../components/Button/BackButton";
+/********* INTERFACE **********/
+import { PageLayoutProps } from '../utils/interfaces';
 
-const AboutLayout = ({ children }) => {
+const AboutLayout : FC <PageLayoutProps>= ({ children }) => {
   const pageTitle = "About";
   return (
     <section className="w-screen h-screen overflow-x-hidden">

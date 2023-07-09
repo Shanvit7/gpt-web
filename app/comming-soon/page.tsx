@@ -1,15 +1,15 @@
 "use client";
+import { FC,useRef, useEffect } from "react";
 /********* HELPERS & UTILS  **********/
-import Lottie from "lottie-react";
+import Lottie,{LottieRefCurrentProps} from "lottie-react";
 import animationData from "../../public/atom-loader.json";
-import { useRef, useEffect } from "react";
-const CommingSoonPage = () => {
-  const animationRef = useRef(null);
+const CommingSoonPage : FC = () => {
+  const animationRef = useRef<LottieRefCurrentProps>(null);
   useEffect(() => {
     const animation = animationRef.current;
-    animation.play();
+    animation!.play();
     return () => {
-      animation.destroy();
+      animation!.destroy();
     };
   }, []);
   return (

@@ -1,6 +1,6 @@
 "use client";
+import { FC,useState } from "react";
 /********* UTILS  **********/
-import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import useSWRMutation from "swr/mutation";
 /********* COMPONENTS **********/
@@ -10,10 +10,10 @@ import Error from "../components/Icons/Error";
 /********* SERVICES **********/
 import { fetchTextExtraction } from "../services/synthAIze.service";
 
-const TextMiningPage = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
+const TextMiningPage : FC = () => {
+  const [selectedFile, setSelectedFile] = useState<boolean | null | File>(null);
   const [text, setText] = useState("");
-  const handleMutationSuccess = (data) => {
+  const handleMutationSuccess = (data : any) => {
     if (data?.text) {
       setText(data?.text);
     } else {
@@ -29,10 +29,10 @@ const TextMiningPage = () => {
   } = useSWRMutation("/api/extract-text-from-file", fetchTextExtraction, {
     onSuccess: handleMutationSuccess,
   });
-  const onDrop = async (acceptedFiles) => {
+  const onDrop = async (acceptedFiles : File[]) => {
     const fileData = acceptedFiles[0];
     setSelectedFile(true);
-    trigger({ fileData });
+    trigger({ fileData } as unknown as null | undefined);
   };
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -40,7 +40,7 @@ const TextMiningPage = () => {
     onDrop,
   });
 
-  const onReset = () => {
+  const onReset = async () => {
     setSelectedFile(null);
   };
 

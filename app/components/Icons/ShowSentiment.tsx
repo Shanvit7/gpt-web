@@ -1,10 +1,10 @@
 "use client";
-import { FC,useRef, useEffect } from 'react';
+import { FC,useRef, useEffect } from "react";
 /********* UTILS **********/
 import Lottie,{LottieRefCurrentProps} from "lottie-react";
-import animationData from "../../../public/satellite.json";
-
-const Loader : FC = () => {
+/********* INTERFACE **********/
+import { ShowSentimentProps } from "../../utils/interfaces";
+const ShowSentiment : FC <ShowSentimentProps> = ({ animationData }) => {
   const animationRef = useRef<LottieRefCurrentProps>(null);
   useEffect(() => {
     const animation = animationRef.current;
@@ -14,16 +14,15 @@ const Loader : FC = () => {
     };
   }, []);
   return (
-    <div className="w-52 h-52">
+    <figure className="w-24 h-24">
       <Lottie
         animationData={animationData}
         loop={true}
         autoplay={true}
         lottieRef={animationRef}
       />
-      <h3 className="text-center text-black text-2xl p-4">Loading...</h3>
-    </div>
+    </figure>
   );
 };
 
-export default Loader;
+export default ShowSentiment;

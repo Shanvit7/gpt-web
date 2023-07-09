@@ -1,7 +1,6 @@
 "use client";
-import { FC } from 'react'; 
+import { FC ,useRef} from 'react'; 
 /********* HELPERS  **********/
-import { useRef } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import animationData from "../../../public/back.json";
 import { useRouter } from "next/navigation";

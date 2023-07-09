@@ -1,16 +1,16 @@
 "use client";
+import {FC,useRef,useEffect} from 'react';
 /********* UTILS **********/
-import Lottie from "lottie-react";
-import { useRef, useEffect } from "react";
+import Lottie,{LottieRefCurrentProps} from "lottie-react";
 import animationData from "../../../public/nextjs.json";
-const NextJS = () => {
-  const animationRef = useRef(null);
+const NextJS : FC = () => {
+  const animationRef = useRef<LottieRefCurrentProps>(null);
 
   useEffect(() => {
     const animation = animationRef.current;
-    animation.play();
+    animation!.play();
     return () => {
-      animation.destroy();
+      animation!.destroy();
     };
   }, []);
   return (

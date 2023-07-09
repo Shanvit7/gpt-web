@@ -1,6 +1,6 @@
 "use client";
+import { FC,useState } from "react";
 /********* UTILS  **********/
-import { useState } from "react";
 import useSWRMutation from "swr/mutation";
 /********* COMPONENTS **********/
 import BasicButton from "../components/Button/BasicButton";
@@ -9,19 +9,19 @@ import Error from "../components/Icons/Error";
 /********* SERVICES **********/
 import { fetchTextSummarization } from "../services/synthAIze.service";
 
-const TextSummarizationPage = () => {
+const TextSummarizationPage : FC = () => {
   const [text, setText] = useState("");
   const [summary, setSummary] = useState("");
   const [summaryPercent, setSummaryPercent] = useState(10);
 
-  const handleTextChange = (e) => {
+  const handleTextChange = (e : React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
   };
 
-  const handleSummaryPercentChange = (e) => {
+  const handleSummaryPercentChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     setSummaryPercent(parseInt(e.target.value));
   };
-  const handleMutationSuccess = async (data) => {
+  const handleMutationSuccess = async (data: any) => {
     if (data.summary) {
       setSummary(data?.summary);
     } else {
@@ -43,7 +43,7 @@ const TextSummarizationPage = () => {
       setSummaryPercent(5);
       return;
     }
-    trigger({ text, summaryPercent });
+    trigger({ text,summaryPercent } as unknown as null | undefined);
   };
 
   return (

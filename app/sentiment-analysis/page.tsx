@@ -1,10 +1,10 @@
 "use client";
+import { FC,useState } from "react";
 /********* COMPONENTS **********/
 import BasicButton from "../components/Button/BasicButton";
 import Loader from "../components/Loaders/Loader";
 import Error from "../components/Icons/Error";
 /********* HELPERS & UTILS & ICONS **********/
-import { useState } from "react";
 import useSWRMutation from "swr/mutation";
 import ShowSentiment from "../components/Icons/ShowSentiment";
 import sad from "../../public/sad.json";
@@ -14,10 +14,10 @@ import { SENTIMENT_HAPPY, SENTIMENT_SAD } from "../utils";
 /********* SERVICES **********/
 import { fetchSentimentAnalysis } from "../services/synthAIze.service";
 
-const SentimentAnalysisPage = () => {
+const SentimentAnalysisPage : FC = () => {
   const [text, setText] = useState("");
-  const [sentiment, setSentiment] = useState("");
-  const handleMutationSuccess = (data) => {
+  const [sentiment, setSentiment] = useState<string>("");
+  const handleMutationSuccess = (data : any) => {
     if (data?.sentiment) {
       setSentiment(data?.sentiment);
     } else {
@@ -34,14 +34,12 @@ const SentimentAnalysisPage = () => {
       onSuccess: handleMutationSuccess,
     }
   );
-  const handleTextChange = (e) => {
+  const handleTextChange = (e :  React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
   };
-
   const processTextAnalysis = async () => {
-    trigger({ text });
+    trigger({ text } as unknown as null | undefined);
   };
-
   return (
     <section className="flex flex-col items-center mt-8 text-black">
       {error ? (
@@ -66,7 +64,7 @@ const SentimentAnalysisPage = () => {
           <textarea
             className="w-full h-40 p-4 bg-black text-white border border-white resize-none"
             placeholder="Enter your text here..."
-            value={text}
+            value={text!}
             onChange={handleTextChange}
           />
           <div className="flex justify-center items-center mt-4">

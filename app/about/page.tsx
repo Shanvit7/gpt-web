@@ -1,10 +1,11 @@
+import { FC } from 'react';
 /******** ICONS,HELPERS & UTILS **********/
 import NextJS from "../components/Icons/NextJS";
 import GithubAnimate from "../components/Icons/GithubAnimate";
 import Link from "next/link";
 import { GITHUB_LINK, APP_NAME } from "../utils";
 
-const AboutPage = () => {
+const AboutPage : FC = () => {
   return (
     <section className="bg-white text-black p-4 sm:p-8">
       <h1 className="text-3xl font-bold mb-6">About {APP_NAME}</h1>

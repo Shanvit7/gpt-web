@@ -3,6 +3,12 @@ export interface PageLayoutProps {
  children : ReactNode,
 };
 
+export interface BasicButtonProps{
+    onClick?: () => Promise<void>,
+    children:ReactNode;
+    disabled?: boolean;
+};
+
 export interface TopNavbarProps {
     pageTitle:String;
 };
@@ -12,6 +18,9 @@ export interface SidebarProps{
     pageTitle:String;
 };
 
+export interface ShowSentimentProps{
+    animationData: any;
+};
   
 export interface DropdownCaretProps {
     isUp: boolean;

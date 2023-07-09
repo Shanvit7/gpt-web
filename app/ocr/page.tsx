@@ -1,19 +1,19 @@
 "use client";
+import { FC,useState } from "react";
 /********* COMPONENTS **********/
 import Loader from "../components/Loaders/Loader";
 import BasicButton from "../components/Button/BasicButton";
 /********* HELPERS & UTILS **********/
-import { useState } from "react";
 import Image from "next/image";
 import { createWorker } from "tesseract.js";
 import { useDropzone } from "react-dropzone";
 import Error from "../components/Icons/Error";
 
-const OCRPage = () => {
-  const [image, setImage] = useState(null);
-  const [text, setText] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setError] = useState(false);
+const OCRPage : FC = () => {
+  const [image, setImage] = useState<string | null>(null);
+  const [text, setText] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setError] = useState<boolean>(false);
 
   const processImage = async () => {
     setIsLoading(true);
@@ -34,11 +34,11 @@ const OCRPage = () => {
     }
   };
 
-  const onDrop = async (acceptedFiles) => {
+  const onDrop = async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     const reader = new FileReader();
     reader.onload = () => {
-      setImage(reader.result);
+      setImage(reader.result as string);
     };
     reader.readAsDataURL(file);
   };
