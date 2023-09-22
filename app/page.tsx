@@ -1,5 +1,5 @@
 "use client";
-import {FC,useRef,useEffect} from 'react';
+import { FC, useRef, useEffect } from "react";
 /********* COMPONENTS **********/
 import BasicButton from "./components/Button/BasicButton";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -34,9 +34,9 @@ const LandingPage: FC = () => {
           <p className="text-black text-lg mb-8">
             Empowering Text Understanding with AI
           </p>
-          <BasicButton>
-            <Link href="/home">Get started</Link>
-          </BasicButton>
+          <Link href="/home">
+            <BasicButton>Get started</BasicButton>
+          </Link>
         </div>
       </div>
     </div>

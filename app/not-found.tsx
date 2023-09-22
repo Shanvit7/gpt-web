@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 /********* COMPONENTS **********/
 import BasicButton from "./components/Button/BasicButton";
 /********* HELPERS & UTILS  **********/
@@ -16,9 +16,9 @@ const NotFoundPage: FC = () => {
         <div className="container pt-8 mx-auto text-center">
           <h1 className="text-5xl font-bold text-black mb-8">{APP_NAME}</h1>
           <p className="text-black text-lg mb-8">Page not found!</p>
-          <BasicButton>
-            <Link href="/home">Back to Home</Link>
-          </BasicButton>
+          <Link href="/home">
+            <BasicButton>Back to Home</BasicButton>
+          </Link>
         </div>
       </div>
     </div>
